@@ -11,16 +11,28 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends ModularState<HomePage, HomeController> {
-  //use 'controller' variable to access controller
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text('Tests App'),
       ),
-      body: Center(
-        child: Text('Test'),
+      body: GridView.count(
+        primary: false,
+        padding: const EdgeInsets.all(20),
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        crossAxisCount: 3,
+        children: <Widget>[
+          RaisedButton(
+            child: const Text('LOGIN', style: TextStyle(color: Colors.black),),
+            color: Colors.blueGrey[300],
+            onPressed: () {
+              Modular.to.pushNamed('/login');
+            },
+          ),
+        ],
       ),
     );
   }
